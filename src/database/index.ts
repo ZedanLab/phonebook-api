@@ -11,7 +11,7 @@ export const DB = new DataSource({
   database: config.database.database,
   synchronize: config.database.synchronize as unknown as boolean,
   logging: config.database.logging as LoggerOptions,
-  entities: [`${__dirname}/../models/*.ts`],
-  migrations: [`${__dirname}/migrations/*.ts`],
+  entities: [`${__dirname}/../models/*.{js,ts}`],
+  migrations: [`${__dirname}/migrations/*.{js,ts}`],
   migrationsTableName: "migrations",
 });
