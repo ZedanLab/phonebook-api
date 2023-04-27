@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-phonebook
+  namespace: api-backend
+  annotations:
+    cert-manager.io/issuer: acme-issuer
+spec:
+  tls:
+    - hosts:
+      - phonebook.zedan.me
+      secretName: phonebook
+  rules:
+    - host: phonebook.zedan.me
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: phonebook
+                port:
+                  number: 80
+  ingressClassName: nginx

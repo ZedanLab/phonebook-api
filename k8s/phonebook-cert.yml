@@ -1,0 +1,42 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: acme-issuer
+  namespace: api-backend
+spec:
+  acme:
+    # Configure your email here...
+    email: mo@zedan.me
+    # Letsencrypt Production
+    server: https://acme-v02.api.letsencrypt.org/directory
+    # Letsencrypt Staging
+    # server: https://acme-staging-v02.api.letsencrypt.org/directory
+
+    privateKeySecretRef:
+      name: letsencrypt-nginx-wcard-private
+    solvers:
+    # Use the DigitalOcean DNS API to manage DNS01 challenge records.
+      - dns01:
+          digitalocean:
+            # Kubernetes secret that contains the DO API token .
+            # Must be in the same namespace as the Issuer CRD.
+            tokenSecretRef:
+              name: digitalocean-dns
+              key: access-token
+    # HTTP Challenge:
+    # - http01:
+    #    ingress:
+    #      class: traefik
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: phonebook
+  namespace: api-backend
+spec:
+  secretName: phonebook
+  issuerRef:
+    name: acme-issuer
+    kind: ClusterIssuer
+  dnsNames:
+    - 'phonebook.zedan.me'

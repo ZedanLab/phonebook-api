@@ -1,0 +1,253 @@
+{
+  "collection": {
+    "info": {
+      "_postman_id": "46b9df67-1e06-484a-9492-7216c212f433",
+      "name": "PhoneBook-API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "updatedAt": "2023-04-27T16:57:50.000Z",
+      "uid": "5562987-46b9df67-1e06-484a-9492-7216c212f433"
+    },
+    "item": [
+      {
+        "name": "List all contacts",
+        "id": "a7fdbdb6-e4e1-416e-918d-a8cf300d3e30",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "{{baseUrl}}/api/contacts/",
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "path": [
+              "api",
+              "contacts",
+              ""
+            ],
+            "query": [
+              {
+                "key": "paginate",
+                "value": "1",
+                "disabled": true
+              },
+              {
+                "key": "page",
+                "value": "10",
+                "disabled": true
+              },
+              {
+                "key": "filter[firstName]",
+                "value": null,
+                "type": "text",
+                "disabled": true
+              }
+            ]
+          }
+        },
+        "response": [
+          
+        ],
+        "uid": "5562987-a7fdbdb6-e4e1-416e-918d-a8cf300d3e30"
+      },
+      {
+        "name": "Show contact",
+        "id": "762e411f-3520-44f0-8f65-74137e237cce",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "{{baseUrl}}/api/contacts/5",
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "path": [
+              "api",
+              "contacts",
+              "5"
+            ]
+          }
+        },
+        "response": [
+          
+        ],
+        "uid": "5562987-762e411f-3520-44f0-8f65-74137e237cce"
+      },
+      {
+        "name": "Update contact",
+        "id": "72f0e49e-c244-4694-91d4-db3d2cfbc570",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"firstName\":\"Mohamed\",\n    \"lastName\": \"Zedan\",\n    \"mobile\": \"+201000093678\",\n    \"email\": \"mo@zedan.me\"\n}"
+          },
+          "url": {
+            "raw": "{{baseUrl}}/api/contacts/1",
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "path": [
+              "api",
+              "contacts",
+              "1"
+            ]
+          }
+        },
+        "response": [
+          
+        ],
+        "uid": "5562987-72f0e49e-c244-4694-91d4-db3d2cfbc570"
+      },
+      {
+        "name": "Delete contact",
+        "id": "7b035aeb-b8b5-4577-ab9a-a9e1cd82da2e",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "DELETE",
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "{{baseUrl}}/api/contacts/4",
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "path": [
+              "api",
+              "contacts",
+              "4"
+            ]
+          }
+        },
+        "response": [
+          
+        ],
+        "uid": "5562987-7b035aeb-b8b5-4577-ab9a-a9e1cd82da2e"
+      },
+      {
+        "name": "Add new contact",
+        "id": "79fccd79-9a31-4be8-bfd9-6cdb52c3cb8c",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"firstName\":\"Ahmed\",\n    \"lastName\": \"Zedan\",\n    \"mobile\": \"+201000093600\",\n    \"email\": \"ao@zedan.me\"\n}"
+          },
+          "url": {
+            "raw": "{{baseUrl}}/api/contacts/",
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "path": [
+              "api",
+              "contacts",
+              ""
+            ]
+          }
+        },
+        "response": [
+          
+        ],
+        "uid": "5562987-79fccd79-9a31-4be8-bfd9-6cdb52c3cb8c"
+      }
+    ],
+    "event": [
+      {
+        "listen": "prerequest",
+        "script": {
+          "id": "bac0c7cf-15c7-485f-bb41-84bda1400e8b",
+          "type": "text/javascript",
+          "exec": [
+            ""
+          ]
+        }
+      },
+      {
+        "listen": "test",
+        "script": {
+          "id": "0f1f34c8-a0d1-4377-a685-8549e72dba36",
+          "type": "text/javascript",
+          "exec": [
+            ""
+          ]
+        }
+      }
+    ],
+    "variable": [
+      {
+        "id": "30ee60d5-399f-406f-aa8b-cf79e7e8353c",
+        "key": "baseUrl",
+        "value": "localhost:8000"
+      }
+    ]
+  }
+}
